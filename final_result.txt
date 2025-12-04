@@ -1,0 +1,392 @@
+ docker run -d --name elasticsearch \
+  -p 9200:9200 -p 9300:9300 \
+  -e "discovery.type=single-node" \
+  -e "xpack.security.enabled=false" \
+  elasticsearch:8.9.0
+docker: Cannot connect to the Docker daemon at unix:///Users/gauravsarkar/.docker/run/docker.sock. Is the docker daemon running?
+
+Run 'docker run --help' for more information
+(ire) gauravsarkar@Gauravs-Mac-mini IRE_End % docker run -d --name elasticsearch \
+  -p 9200:9200 -p 9300:9300 \
+  -e "discovery.type=single-node" \
+  -e "xpack.security.enabled=false" \
+  elasticsearch:8.9.0
+Unable to find image 'elasticsearch:8.9.0' locally
+8.9.0: Pulling from library/elasticsearch
+74e186cbc763: Pull complete 
+1e77eb131c5c: Pull complete 
+a87ed88089fc: Pull complete 
+395974a8ae1f: Pull complete 
+4f4fb700ef54: Pull complete 
+65704619447f: Pull complete 
+4c16c3cf82e5: Pull complete 
+bf01410cd0ef: Pull complete 
+9e47af996750: Pull complete 
+deaa0cbb0840: Pull complete 
+Digest: sha256:ac562ea8af1606ea65df64fc775f384a5cae82ae20e78f07ce31dc91c6943437
+Status: Downloaded newer image for elasticsearch:8.9.0
+22b9841a78c5723ad82fce72e5aeee8a333546c91e90e7bd83cb8525cf9ef716
+(ire) gauravsarkar@Gauravs-Mac-mini IRE_End % curl http://localhost:3000/query    
+
+{"user_id":"ffc28006-051c-4e0c-840f-1eefcaa10cce","query_id":"1e4c7609-df36-44b3-a751-dbce52ca04e9","query_text":"ai technology impact healthcare gaming cybersecurity 2023"}%                                                    
+(ire) gauravsarkar@Gauravs-Mac-mini IRE_End % curl http://localhost:9200
+
+{
+  "name" : "22b9841a78c5",
+  "cluster_name" : "docker-cluster",
+  "cluster_uuid" : "92DBfZSXRQ6Y846ahgO9mg",
+  "version" : {
+    "number" : "8.9.0",
+    "build_flavor" : "default",
+    "build_type" : "docker",
+    "build_hash" : "8aa461beb06aa0417a231c345a1b8c38fb498a0d",
+    "build_date" : "2023-07-19T14:43:58.555259655Z",
+    "build_snapshot" : false,
+    "lucene_version" : "9.7.0",
+    "minimum_wire_compatibility_version" : "7.17.0",
+    "minimum_index_compatibility_version" : "7.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+(ire) gauravsarkar@Gauravs-Mac-mini IRE_End % bash run_experiment.sh
+
+==========================================
+Personalized News Ranking Experiment
+==========================================
+
+Step 1: Setting up Elasticsearch...
+==========================================
+============================================================
+Setting up Elasticsearch
+============================================================
+Creating index: news_articles
+Loading articles from /Users/gauravsarkar/Documents/IRE_End/articles.jsonl
+12212it [00:00, 104073.77it/s]
+Loaded 12212 articles
+Indexing 12212 articles...
+Indexed 12212 articles successfully
+Total documents in index: 12212
+
+Sample document:
+{
+  "uuid": "b20d1099f162637cb1c33b58f5f65769bffbac84",
+  "text": "Samsung\u2019s Galaxy Watch7 Offer: Is Free Really Free? Samsung is making waves in the market with promotions on its latest devices, particularly the Galaxy Watch7. The allure of getting a premium smartwatch \u201centirely free\u201d is drawing attention, but what\u2019s the catch? Let\u2019s delve into the details of this offer and whether it\u2019s truly a deal worth considering, especially in light of the evolving smartwatch landscape.\nThe Allure of the Galaxy Ecosystem Samsung positions its smartphones, tablets, smartwatches, and headphones as top-tier choices, emphasizing \u201cthe most advanced features, tuned Galaxy AI, premium materials and great design.\u201d The company encourages investment in its entire ecosystem for a seamless user experience. Currently,a discount of up to 15% is available on mobile phones.\nDecoding the \u201cFree\u201d Watch Offer The promotion focuses on the Galaxy Watch Ultra and Galaxy Watch7. According to reports, these watches \u201chave been extremely successful,\u201d and are highly-rated by reviewers. The key to unlocking the \u201cfree\u201d watch lies in bundled purchases.\nStrategic Bundling: Buy More, Save More A key incentive is the \u201cbuy more, pay less\u201d strategy.If you\u2019re eyeing the Galaxy S25, using the code \u201c vicegalaxy \u201d when purchasing it alongside a Galaxy Watch7 results in a discount of 2,858 CZK. However, the real savings kick in with larger bundles.\nPurchasing three or more products simultaneously unlocks a 15% discount. Such as, combining a Samsung Galaxy S25, a Galaxy Tab S10+, and a Galaxy Watch7 yields a savings of 7,840 CZK, effectively making the watch \u201cfree.\u201d\nMaximizing Savings: Combining Discounts and Bonuses The 15% discount isn\u2019t the only avenue for savings. It can be combined with other benefits and purchase bonuses. According to the promotion, these combinations could potentially save consumers \u201ctens of thousands of crowns.\u201d\nIs the Galaxy Watch7 a Good Choice in 2025? The Galaxy Watch7 boasts advanced health tracking features, including continuous heart rate monitoring, sleep analysis, and blood oxygen level detection. its integration with the Samsung ecosystem is seamless, allowing for easy control of your phone, music, and smart home devices. The watch also supports mobile payments and offers a wide range of customizable watch faces.\nThe Bottom Line: Is It worth It? While the \u201cfree\u201d Galaxy Watch7 offer is compelling, it\u2019s essential to assess your needs and budget. If you were already planning to purchase multiple Samsung devices,this promotion offers substantial savings. However,if you are only interested in the watch,consider whether the other bundled items align with your requirements. Always compare prices and consider alternative smartwatches before making a decision.\nUltimately, the value of this promotion depends on your individual circumstances. If you\u2019re a loyal Samsung user looking to upgrade multiple devices,this is an excellent opportunity to save. But remember to do your research and ensure that the \u201cfree\u201d watch offer truly aligns with your needs and provides the best overall value.\nWhat are the potential savings offered by samsung\u2019s \u201cbuy more, save more\u201d strategy?\nUnraveling Samsung\u2019s \u201cFree\u201d Galaxy Watch7 Offer: A Chat with Marketing Expert, Alex Kim Samsung\u2019s latest promotion, offering the Galaxy Watch7 \u201cfree\u201d with the purchase of multiple devices, has sparked curiosity and intrigue. To shed some light on this deal and its implications,we sat down with marketing expert Alex Kim.Kim, a regular contributor to tech industry publications, shared his insights into Samsung\u2019s strategy and the appeal of the Galaxy ecosystem.\nThe allure of the galaxy Ecosystem Alex Kim (AK): Samsung\u2019s approach hinges on positioning its products as the best in their class.From smartphones to smartwatches, they offer advanced features, clever AI, and premium design. The real genius, though, lies in encouraging users to invest in the entire ecosystem for a seamless experience. Currently, they\u2019re offering up to 15% off on mobile phones, sweetening the deal for early adopters.\nDecoding the \u201cFree\u201d Watch Offer Archyde (A): Let\u2019s talk about the \u201cfree\u201d Galaxy Watch7 offer. How does it work?\nAK: Well, the key lies in bundling. Your not really getting a free watch; instead, Samsung is incentivizing you to buy more. The promotion is currently focused on the Galaxy Watch7 and Galaxy Watch Ultra.To qualify, you need to purchase these watches alongside other Samsung devices like smartphones or tablets.\nStrategic Bundling: Buy More, Save More A: Can you walk us through the \u201cbuy more, save more\u201d strategy?\nAK: Sure. If you\u2019re buying the Galaxy S25 with a Galaxy Watch7, you\u2019ll get a discount of around 2,858 CZK. But the real savings come when you bundle three or more products. For instance, combining a Galaxy S25, a Galaxy Tab S10+, and a Galaxy Watch7 can save you up to 7,840 CZK, effectively making the watch \u201cfree.\u201d It\u2019s a clever way to boost sales across their product range.\nMaximizing Savings: Combining discounts and Bonuses A: Are there other ways to maximize savings with this offer?\nAK: Absolutely. Samsung\u2019s promotion allows you to stack discounts and bonuses. By combining different offers, consumers could perhaps save tens of thousands of crowns. It\u2019s like adding a zero to the end of your savings \u2013 that\u2019s how notable these bonuses can be.\nIs the Galaxy Watch7 a Good Choice in 2025? A: Given the growing smartwatch market,how does the Galaxy Watch7 fare in 2025?\nAK: Samsung\u2019s latest smartwatch is packed with advanced health tracking features,seamless ecosystem integration,and mobile payment support. It\u2019s certainly a strong contender. However, with the market expanding and competitors upping their game, it\u2019s definitely not the only option worth considering.\nThe Bottom Line: Is It worth It? A: So, is Samsung\u2019s \u201cfree\u201d Galaxy Watch7 offer a deal worth pursuing?\nAK: If you\u2019re planning to upgrade multiple Samsung devices anyway, this promotion can offer ample savings. But remember, it\u2019s critically important to assess your needs and budget. Always compare prices and consider alternative smartwatches. Ultimately, the value of this promotion depends on your individual circumstances.\nA: That\u2019s insightful advice, Alex. Our final question is a thought-provoking one: Do you think this bundling strategy will define future tech promotions, or is it a\u4e00time deal for Samsung?\nAK: I believe bundling is here to stay, especially in the competitive tech landscape. We can expect to see more companies employing this strategy to encourage loyalty and increase sales. However, the intricacies of each promotion will likely vary, making every offer unique.",
+  "topics": [
+    "science and technology"
+  ]
+}
+
+✓ Elasticsearch setup complete!
+
+Step 2: Running baseline system (50000 queries)...
+==========================================
+============================================================
+Running Baseline System (50000 queries)
+============================================================
+✓ Connected to simulation server at http://localhost:3000
+Logging to: /Users/gauravsarkar/Documents/IRE_End/data/logs/baseline_interactions.jsonl
+                                                                                                                                                                                                                                  
+--- Progress Update (5000/50000 queries) ---
+  Clicks: 523 | Dwell: 4207s | Likes: 14 | Shares: 10 | Bookmarks: 12                                                                                                                                                             
+                                                                                                                                                                                                                                  
+--- Progress Update (10000/50000 queries) ---
+  Clicks: 1047 | Dwell: 9087s | Likes: 33 | Shares: 21 | Bookmarks: 27                                                                                                                                                            
+                                                                                                                                                                                                                                  
+--- Progress Update (15000/50000 queries) ---
+  Clicks: 1551 | Dwell: 12794s | Likes: 49 | Shares: 30 | Bookmarks: 36                                                                                                                                                           
+                                                                                                                                                                                                                                  
+--- Progress Update (20000/50000 queries) ---
+  Clicks: 2042 | Dwell: 16960s | Likes: 66 | Shares: 36 | Bookmarks: 51                                                                                                                                                           
+                                                                                                                                                                                                                                  
+--- Progress Update (25000/50000 queries) ---
+  Clicks: 2564 | Dwell: 21845s | Likes: 82 | Shares: 48 | Bookmarks: 63                                                                                                                                                           
+                                                                                                                                                                                                                                  
+--- Progress Update (30000/50000 queries) ---
+  Clicks: 3059 | Dwell: 25976s | Likes: 100 | Shares: 62 | Bookmarks: 79                                                                                                                                                          
+                                                                                                                                                                                                                                  
+--- Progress Update (35000/50000 queries) ---
+  Clicks: 3568 | Dwell: 31010s | Likes: 114 | Shares: 73 | Bookmarks: 88                                                                                                                                                          
+                                                                                                                                                                                                                                  
+--- Progress Update (40000/50000 queries) ---
+  Clicks: 4093 | Dwell: 35437s | Likes: 125 | Shares: 82 | Bookmarks: 102                                                                                                                                                         
+                                                                                                                                                                                                                                  
+--- Progress Update (45000/50000 queries) ---
+  Clicks: 4632 | Dwell: 39616s | Likes: 138 | Shares: 92 | Bookmarks: 109                                                                                                                                                         
+Processing queries:  91%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉              | 45659/50000 [24:10<00:34, 126.61it/s]
+Warning: No results for query 'чита отключение уличных фонарей экологические проблемы'
+                                                                                                                                                                                                                                  
+--- Progress Update (50000/50000 queries) ---
+  Clicks: 5134 | Dwell: 43628s | Likes: 159 | Shares: 102 | Bookmarks: 121                                                                                                                                                        
+Processing queries: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50000/50000 [24:54<00:00, 33.45it/s]
+
+============================================================
+Cumulative User Interaction Summary
+============================================================
+  Total Clicks: 5134
+  Total Dwell Time: 43628 seconds
+  Total Likes: 159
+  Total Shares: 102
+  Total Bookmarks: 121
+
+============================================================
+Baseline Run Complete
+============================================================
+
+Statistics:
+  total_interactions: 122497
+  unique_users: 200
+  unique_queries: 85405
+  total_clicks: 12540
+  total_likes: 364
+  total_shares: 217
+  total_bookmarks: 274
+  total_dwell_time: 102134.03591352089
+  avg_dwell_time: 8.144659961205813
+
+Metrics:
+  ctr: 0.0102
+  mrr: 0.0790
+  ndcg: 0.0841
+  avg_dwell_time: 8.1447
+  engagement_rate: 0.0070
+  precision_at_k: 0.0102
+
+Step 3: Training personalized model...
+==========================================
+============================================================
+Training Personalized Model
+============================================================
+Training from: /Users/gauravsarkar/Documents/IRE_End/data/logs/baseline_interactions.jsonl
+Output model: /Users/gauravsarkar/Documents/IRE_End/models/personalized_model.json
+Method: ensemble
+
+Training personalized ranker with method: ensemble
+Learning from 122497 interactions...
+
+Training Collaborative Filtering model...
+CF Model trained: 0 users, 0 articles
+
+Training Gradient Boosting model...
+Training LightGBM with 1224970 samples, 122497 queries
+Model trained successfully
+
+✓ Training complete!
+Saved models to /Users/gauravsarkar/Documents/IRE_End/models/personalized_model.json
+
+✓ Training complete!
+
+Step 4: Running personalized system (10000 queries)...
+==========================================
+============================================================
+Running Personalized System (10000 queries)
+============================================================
+Loaded models from /Users/gauravsarkar/Documents/IRE_End/models/personalized_model.json
+✓ Connected to simulation server
+✓ Loaded model from /Users/gauravsarkar/Documents/IRE_End/models/personalized_model.json
+Method: ensemble
+Logging to: /Users/gauravsarkar/Documents/IRE_End/data/logs/personalized_interactions.jsonl
+                                                                                                                                                                                                                                  
+--- Progress Update (1000/10000 queries) ---
+  Clicks: 85 | Dwell: 766s | Likes: 1 | Shares: 2 | Bookmarks: 2                                                                                                                                                                  
+                                                                                                                                                                                                                                  
+--- Progress Update (2000/10000 queries) ---
+  Clicks: 184 | Dwell: 1598s | Likes: 4 | Shares: 3 | Bookmarks: 5                                                                                                                                                                
+                                                                                                                                                                                                                                  
+--- Progress Update (3000/10000 queries) ---
+  Clicks: 297 | Dwell: 2356s | Likes: 7 | Shares: 5 | Bookmarks: 9                                                                                                                                                                
+                                                                                                                                                                                                                                  
+--- Progress Update (4000/10000 queries) ---
+  Clicks: 412 | Dwell: 3441s | Likes: 9 | Shares: 7 | Bookmarks: 11                                                                                                                                                               
+                                                                                                                                                                                                                                  
+--- Progress Update (5000/10000 queries) ---
+  Clicks: 505 | Dwell: 4548s | Likes: 10 | Shares: 9 | Bookmarks: 13                                                                                                                                                              
+                                                                                                                                                                                                                                  
+--- Progress Update (6000/10000 queries) ---
+  Clicks: 604 | Dwell: 5408s | Likes: 11 | Shares: 11 | Bookmarks: 16                                                                                                                                                             
+                                                                                                                                                                                                                                  
+--- Progress Update (7000/10000 queries) ---
+  Clicks: 719 | Dwell: 6218s | Likes: 15 | Shares: 12 | Bookmarks: 21                                                                                                                                                             
+                                                                                                                                                                                                                                  
+--- Progress Update (8000/10000 queries) ---
+  Clicks: 830 | Dwell: 7262s | Likes: 16 | Shares: 14 | Bookmarks: 24                                                                                                                                                             
+                                                                                                                                                                                                                                  
+--- Progress Update (9000/10000 queries) ---
+  Clicks: 939 | Dwell: 8241s | Likes: 16 | Shares: 19 | Bookmarks: 26                                                                                                                                                             
+                                                                                                                                                                                                                                  
+--- Progress Update (10000/10000 queries) ---
+  Clicks: 1049 | Dwell: 9248s | Likes: 21 | Shares: 24 | Bookmarks: 26                                                                                                                                                            
+Processing queries: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10000/10000 [01:53<00:00, 88.42it/s]
+
+============================================================
+Cumulative User Interaction Summary
+============================================================
+  Total Clicks: 1049
+  Total Dwell Time: 9248 seconds
+  Total Likes: 21
+  Total Shares: 24
+  Total Bookmarks: 26
+
+============================================================
+Personalized Run Complete
+============================================================
+
+Statistics:
+  total_interactions: 20400
+  unique_users: 200
+  unique_queries: 19125
+  total_clicks: 2098
+  total_likes: 44
+  total_shares: 38
+  total_bookmarks: 50
+  total_dwell_time: 17137.3183862431
+  avg_dwell_time: 8.168407238438084
+
+Metrics:
+  ctr: 0.0103
+  mrr: 0.0790
+  ndcg: 0.0842
+  avg_dwell_time: 8.1684
+  engagement_rate: 0.0065
+  precision_at_k: 0.0103
+
+Step 5: Running A/B test (50000 queries)...
+==========================================
+============================================================
+Running A/B Test (50000 queries)
+============================================================
+Loaded models from /Users/gauravsarkar/Documents/IRE_End/models/personalized_model.json
+✓ Connected to simulation server
+✓ Loaded personalized model (method: ensemble)
+Control (baseline) log: /Users/gauravsarkar/Documents/IRE_End/data/logs/ab_control.jsonl
+Treatment (personalized) log: /Users/gauravsarkar/Documents/IRE_End/data/logs/ab_treatment.jsonl
+                                                                                                                                                                                                                                  
+--- Progress Update (5000/50000 queries) ---
+  Control:   2459 queries, 222 clicks, 2066s dwell                                                                                                                                                                                
+  Treatment: 2541 queries, 271 clicks, 1922s dwell                                                                                                                                                                                
+                                                                                                                                                                                                                                  
+--- Progress Update (10000/50000 queries) ---
+  Control:   4953 queries, 483 clicks, 3718s dwell                                                                                                                                                                                
+  Treatment: 5047 queries, 522 clicks, 3910s dwell                                                                                                                                                                                
+                                                                                                                                                                                                                                  
+--- Progress Update (15000/50000 queries) ---
+  Control:   7452 queries, 720 clicks, 5615s dwell                                                                                                                                                                                
+  Treatment: 7548 queries, 768 clicks, 5889s dwell                                                                                                                                                                                
+                                                                                                                                                                                                                                  
+--- Progress Update (20000/50000 queries) ---
+  Control:   9954 queries, 963 clicks, 7426s dwell                                                                                                                                                                                
+  Treatment: 10046 queries, 1037 clicks, 8459s dwell                                                                                                                                                                              
+                                                                                                                                                                                                                                  
+--- Progress Update (25000/50000 queries) ---
+  Control:   12483 queries, 1225 clicks, 10181s dwell                                                                                                                                                                             
+  Treatment: 12517 queries, 1295 clicks, 10775s dwell                                                                                                                                                                             
+                                                                                                                                                                                                                                  
+--- Progress Update (30000/50000 queries) ---
+  Control:   14910 queries, 1472 clicks, 11883s dwell                                                                                                                                                                             
+  Treatment: 15090 queries, 1553 clicks, 12859s dwell                                                                                                                                                                             
+                                                                                                                                                                                                                                  
+--- Progress Update (35000/50000 queries) ---
+  Control:   17434 queries, 1735 clicks, 13864s dwell                                                                                                                                                                             
+  Treatment: 17566 queries, 1799 clicks, 15123s dwell                                                                                                                                                                             
+                                                                                                                                                                                                                                  
+--- Progress Update (40000/50000 queries) ---
+  Control:   19960 queries, 2003 clicks, 16109s dwell                                                                                                                                                                             
+  Treatment: 20040 queries, 2046 clicks, 16709s dwell                                                                                                                                                                             
+                                                                                                                                                                                                                                  
+--- Progress Update (45000/50000 queries) ---
+  Control:   22471 queries, 2276 clicks, 18450s dwell                                                                                                                                                                             
+  Treatment: 22529 queries, 2310 clicks, 19228s dwell                                                                                                                                                                             
+                                                                                                                                                                                                                                  
+--- Progress Update (50000/50000 queries) ---
+  Control:   24918 queries, 2532 clicks, 20173s dwell                                                                                                                                                                             
+  Treatment: 25082 queries, 2555 clicks, 21595s dwell                                                                                                                                                                             
+Processing queries: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50000/50000 [07:49<00:00, 106.47it/s]
+
+Control queries: 24918
+Treatment queries: 25082
+
+============================================================
+A/B Test Cumulative Summary
+============================================================
+  Control (Baseline):     2532 clicks (10.16% CTR), 20173s dwell
+  Treatment (Personalized): 2555 clicks (10.19% CTR), 21595s dwell
+
+============================================================
+Statistical Analysis
+============================================================
+
+Control sample size: 35372
+Treatment sample size: 35827
+
+Overall Winner: INCONCLUSIVE
+
+============================================================
+Metrics Comparison
+============================================================
+
+CTR:
+  Control:   0.0100
+  Treatment: 0.0101
+  Change:    +0.68%
+
+MRR:
+  Control:   0.0768
+  Treatment: 0.0776
+  Change:    +1.09%
+
+NDCG:
+  Control:   0.0819
+  Treatment: 0.0826
+  Change:    +0.90%
+
+ENGAGEMENT_RATE:
+  Control:   0.0066
+  Treatment: 0.0068
+  Change:    +2.99%
+
+============================================================
+Significance Tests
+============================================================
+
+CTR:
+  Control:    0.0100
+  Treatment:  0.0101
+  Difference: +0.68%
+  P-value:    0.7683186645925454
+  Significant: ✗ NO (α=0.05)
+  Effect size: 0.0022
+
+MRR:
+  Control:    0.0768
+  Treatment:  0.0776
+  Difference: +1.09%
+  P-value:    0.6571283163512506
+  Significant: ✗ NO (α=0.05)
+  Effect size: 0.0033
+
+NDCG:
+  Control:    0.0819
+  Treatment:  0.0826
+  Difference: +0.90%
+  P-value:    0.7038945511769943
+  Significant: ✗ NO (α=0.05)
+  Effect size: 0.0028
+
+Engagement Rate:
+  Control:    0.0066
+  Treatment:  0.0068
+  Difference: +2.99%
+  P-value:    0.755431547670522
+  Significant: ✗ NO (α=0.05)
+  Effect size: 0.0023
+
+✓ Full results saved to: /Users/gauravsarkar/Documents/IRE_End/data/logs/ab_test_results.json
+
+==========================================
+✓ Experiment complete!
+==========================================
+
+Results are saved in:
+  - data/logs/baseline_interactions.jsonl
+  - data/logs/personalized_interactions.jsonl
+  - data/logs/ab_test_results.json
+  - models/personalized_model.json
