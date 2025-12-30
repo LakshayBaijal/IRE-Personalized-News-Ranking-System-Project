@@ -2,7 +2,11 @@
 
 An end-to-end personalized ranking system for news articles using Elasticsearch, classical Machine Learning (Collaborative Filtering + LightGBM), and A/B testing. This project demonstrates a complete pipeline for personalized news retrieval, from data indexing to statistical evaluation.
 
-## 📋 Table of Contents
+
+## Project Execution Video
+[Screencast from 2025-12-30 23-13-54.webm](https://github.com/user-attachments/assets/ac11a6a9-2c76-4733-8c12-5261aba8beda)
+
+## Table of Contents
 - [Overview](#overview)
 - [Key Features](#key-features)
 - [System Architecture](#system-architecture)
@@ -13,11 +17,11 @@ An end-to-end personalized ranking system for news articles using Elasticsearch,
 - [Project Structure](#project-structure)
 - [Troubleshooting](#troubleshooting)
 
-## 📖 Overview
+## Overview
 
 This project implements a personalized news ranking system that adapts to individual user preferences. It uses **Elasticsearch** for efficient baseline retrieval and re-ranks results using a **hybrid personalization model**. The system's effectiveness is validated through a simulated environment and rigorous **A/B testing**.
 
-## ✨ Key Features
+## Key Features
 
 - **Baseline Retrieval**: BM25-based search using Elasticsearch.
 - **Hybrid Personalization**: Combines Collaborative Filtering (user-user similarity) and Learning to Rank (LightGBM).
@@ -62,7 +66,7 @@ The system consists of a Python ranking backend interacting with an Elasticsearc
 └───────────────────────────────────┘
 ```
 
-## 🧠 Methodology
+## Methodology
 
 The personalization engine employs a hybrid approach:
 
@@ -80,7 +84,7 @@ The personalization engine employs a hybrid approach:
     *   **Implementation**: A weighted average of CF and LightGBM scores, blended with the original BM25 relevance score.
     *   **Equation**: `Final_Score = 0.6 * BM25 + 0.4 * (0.5 * CF + 0.5 * LightGBM)`
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - **Docker** (for Elasticsearch and User Simulation)
@@ -155,7 +159,7 @@ Compare the Baseline (Control) vs. Personalized (Treatment) systems.
 python main.py --mode ab-test --num-queries 500
 ```
 
-## 📊 Results
+## Results
 
 The system evaluates performance using **CTR (Click-Through Rate)**, **MRR (Mean Reciprocal Rank)**, **NDCG**, and **Engagement Rate**.
 
@@ -184,7 +188,7 @@ NDCG:       +12.55% (p < 0.05)
 
 *Note: Actual results depend on the number of queries run. A minimum of 10,000 queries is recommended for statistical significance due to the cold-start nature of the simulation.*
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 IRE_End/
@@ -205,16 +209,3 @@ IRE_End/
     └── logs/                   # Stored interaction logs
 ```
 
-## 🔧 Troubleshooting
-
-- **"ConnectionError"**: Ensure Docker containers for Elasticsearch and the Simulation are running (`docker ps`).
-- **Zero Engagement/Metrics**:
-    - Low engagement is normal for the first few hundred queries (Cold Start).
-    - Ensure `debug_articles.py` passes to verify UUID matching between the simulation and your index.
-    - Run more queries (1,000+) to allow the model to learn user preferences.
-- **JSON Serialization Error**: If encountered, update `ab_testing.py` to cast NumPy types to native Python types (fixed in latest version).
-
-For more details, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
-
-## 📜 License
-This project is part of the Information Retrieval and Extraction course.
