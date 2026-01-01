@@ -209,3 +209,5 @@ IRE_End/
     └── logs/                   # Stored interaction logs
 ```
 
+Keywords- 
+tutorial, from-scratch, how-to, example, demo, install, run, dataset, colab, c++, linux, system-calls, object-detection, opencv
